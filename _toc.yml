@@ -1,0 +1,25 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: Intro/Introduction.md
+  sections:
+   - file: Intro/whatIsNumericalModeling
+- file: FiniteDifferences/Introduction.md
+  sections:
+  - file: FiniteDifferences/algebraicDerivative.md
+  - file: FiniteDifferences/truncationErrors.md
+  - file: FiniteDifferences/estimatesTruncationError.md
+  - file: FiniteDifferences/fdFormulasFirstDerivative.md
+  - file: FiniteDifferences/evaluatingTruncationError.md
+- file: LinearAdvectionEquation/Introduction.md
+  sections:
+  - file: LinearAdvectionEquation/differenceEquation.md
+  - file: LinearAdvectionEquation/Analysis.md
+  - file: LinearAdvectionEquation/TVD.md
+- file: TheWaveEquation/Introduction.md
+  sections:
+  - file: TheWaveEquation/linear1dGravityWaves.md
+  - file: TheWaveEquation/solutionRegularGrid.md
