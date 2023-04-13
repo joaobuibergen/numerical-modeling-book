@@ -3,13 +3,13 @@
 The accuracy of the algebraic approximation to $du/dt$ can be determined with the help of the Taylor series expansion of $u(t)$: 
 
 $$
-u(t+\Delta t)=u(t)+\Delta t\frac{du}{dt} + \displaystyle\sum_{i=2}^{\infty} \frac{\Delta t^i}{i!}\frac{d^iu}{dt^i}
+u(t+\Delta t)=u(t)+\Delta t\frac{du}{dt} + \displaystyle\sum_{p=2}^{\infty} \frac{\Delta t^p}{p!}\frac{d^pu}{dt^p}
 $$
 
 Rearranging for $du/dt$, we obtain, using the discretized $t^n$:
 
 $$
-\frac{du}{dt} = \frac{u^{n+1}-u^n}{\Delta t} - \displaystyle\sum_{i=2}^{\infty} \frac{(-1)^i\Delta t^{i-1}}{i!}\frac{d^iu}{dt^i}.
+\frac{du}{dt} = \frac{u^{n+1}-u^n}{\Delta t} - \displaystyle\sum_{p=2}^{\infty} \frac{(-1)^p\Delta t^{p-1}}{p!}\frac{d^pu}{dt^p}.
 $$
 
 The difference between the exact derivative and our algebraic approximation is the last term of the right hand side of the previous equation. Expanding this term up to $i=4$, we see its general form:
