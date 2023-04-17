@@ -51,7 +51,37 @@ $$
 \lambda_\pm = -i\Delta tr \pm \sqrt{1-(\Delta tr)^2}.
 $$
 
-For the scheme to be stable, we must have $|\lambda_\pm| \leq 1$, which is true if $\Delta tr \leq 1$.
+For the scheme to be stable, we must have $|\lambda_\pm| \leq 1$, which is true if $\Delta tr \leq 1$, or
+
+$$
+\Delta t \| u\frac{\sin k_x\Delta x}{\Deltax}+v\frac{\sin k_y\Delta y}{\Deltay}\| \leq 1.
+$$
+
+Let $u=V\cos\theta$ and $v=V\sin\theta$ and write
+
+$$
+\Delta t V\| \cos\theta\frac{\sin k_x\Delta x}{\Deltax}+\sin\theta\frac{\sin k_y\Delta y}{\Deltay}\| \leq 1.
+$$
+
+For $\Delta x=\Delta y=s$, we shall have
+
+$$
+\frac{\Delta t V}{s}\| \cos\theta\sin k_x\Delta x+\sin\theta\sin k_y\Delta y\| \leq 1.
+$$
+
+When $\sin k_x\Delta x=1$ and $\sin k_y\Delta y=1$,
+
+$$
+\frac{\Delta t V}{s}\| \cos\theta+\sin\theta\| \leq 1,
+$$
+
+which is maximum when $\theta=\pi/4$ and $(\cos\theta+\sin\theta\)_{\theta=\pi/4}=\sqrt{2}$, resulting in
+
+$$
+\sqrt{2}\frac{\Delta t V}{s} \leq 1 \Leftrightarrow \frac{\Delta t V}{s} \leq \frac{1}{sqrt{2}}=0.707\dots.
+$$
+
+So we find that for 2d advection there is a reduction in the stability limit, which has to be 30% smaller than the limit in the 1d case.
 
 
 
