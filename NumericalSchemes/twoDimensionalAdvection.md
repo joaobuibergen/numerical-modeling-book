@@ -95,3 +95,5 @@ Since $k_{2D}$ is larger than $k_{1D}$ by a factor of $\sqrt{2}$, the effectice 
 
 
 
+
+

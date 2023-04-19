@@ -16,7 +16,9 @@ chapters:
   - file: FiniteDifferences/evaluatingTruncationError.md
 - file: LinearAdvectionEquation/Introduction.md
   sections:
+  - file: LinearAdvectionEquation/analyticSolution.md
   - file: LinearAdvectionEquation/differenceEquation.md
+  - file: LinearAdvectionEquation/differenceSolution.md
   - file: LinearAdvectionEquation/Analysis.md
   - file: LinearAdvectionEquation/TVD.md
 - file: NumericalStability/intro.md
@@ -32,8 +34,11 @@ chapters:
   - file: NumericalSchemes/schemeMacCormack.md
   - file: NumericalSchemes/schemeCrankNicholson.md
   - file: NumericalSchemes/schemeImplicit.md
+  - file: NumericalSchemes/TVD.md
+  - file: NumericalSchemes/semiLagrangian.md
   - file: NumericalSchemes/twoDimensionalAdvection.md
 - file: TheWaveEquation/Introduction.md
   sections:
   - file: TheWaveEquation/linear1dGravityWaves.md
   - file: TheWaveEquation/solutionRegularGrid.md
+- file: Bibliography/bibliography.md

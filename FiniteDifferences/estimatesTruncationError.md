@@ -4,33 +4,33 @@ To obtain an estimate of the truncation error, we must first estimate the magnit
 
 ```{figure} UTscales.png
 ---
-height: 80px
+height: 200px
 name: figUTscales
 ---
 Time and space scales of signal $u(t)$.
 ```
 
-We observe that over time interval $\mathbf{T}$ the signal shows a variation of size $\mathbf{U}$. These characteristic values may be thought of as time and signal scales of $u$. Since the derivative of $u(t)$ is the variation $\Delta u$ that occurs over time interval $\Delta t$, we can say that $\mathbf{U}$ and $\mathbf{T}$ are the characteristic values of $\Delta u$ and $\Delta t$ and write
+We observe that over time interval $T$ the signal shows a variation of size $U$. These characteristic values may be thought of as time and signal scales of $u$. Since the derivative of $u(t)$ is the variation $\Delta u$ that occurs over time interval $\Delta t$, we can say that $U$ and $T$ are the characteristic values of $\Delta u$ and $\Delta t$ and write
 
 $$
-\frac{du}{dt} \approx \frac{\mathbf{U}}{\mathbf{T}}.
-$$
+\frac{du}{dt} \approx \frac{U}{T}.
+$$ (eq:orderDuDt)
 
-To obtain an estimate of the second derivative, we may assume that the variations in $du/dt$ also occur over a $\mathbf{T}$ characteristic time and write
+To obtain an estimate of the second derivative, we may assume that the variations in $du/dt$ also occur over the same time scale $T$, as the signal $u$, and write
 
 $$
-\frac{d^2u}{dt^2} = \frac{d}{dt} \frac{du}{dt} \approx \frac{\mathbf{U}/\mathbf{T}}{\mathbf{T}} = \frac{\mathbf{U}}{\mathbf{T}^2}.
-$$
+\frac{d^2u}{dt^2} = \frac{d}{dt} \frac{du}{dt} \approx \frac{U/T}{T} = \frac{U}{T^2}.
+$$ (eq:orderDu2Dt2)
 
 For higher order derivatives, the reasoning is the same. 
 
-Coming back to the magnitude of the truncation error, the size of the terms of XX will be
+Coming back to the magnitude of the truncation error, the size of the terms of {eq}`eq:truncationError` will be
 
 $$
-\Delta t \frac{\mathbf{U}}{\mathbf{T}^2}, \quad \Delta t^2 \frac{\mathbf{U}}{\mathbf{T}^3}, \quad \Delta t^3 \frac{\mathbf{U}}{\mathbf{T}^3}, \quad \mathrm{etc.}
-$$
+\Delta t \frac{U}{T^2}, \quad \Delta t^2 \frac{U}{T^3}, \quad \Delta t^3 \frac{U}{T^3}, \quad \text{etc.}
+$$ (eq:magTruncationError)
 
-For small $\Delta t$, we can retain the leading order error term in YY:
+For small $\Delta t$, we can retain the leading order error term in {eq}`eq:magTruncationError`:
 
 $$
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t} + O\left( \frac{\Delta t}{T}\frac{U}{T}\right).
@@ -40,7 +40,7 @@ Now we see that the *order* of the relative error $\varepsilon$, i.e. the differ
 
 $$
 O(\varepsilon)=O(\frac{\Delta t}{T}).
-$$
+$$ 
 
 This implies that to have an acceptable approximation to the derivative $du/dt$, we should have $O(\varepsilon)\ll 1$, which implies that
 

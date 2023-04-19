@@ -4,19 +4,19 @@ Let us consider a function $u(t)$ that depends continously on $t$. The derivativ
 
 $$
 \frac{du}{dt} = \lim_{\Delta t \to 0} \frac{u(t+\Delta t)-u(t)}{\Delta t}.
-$$
+$$ (eq:exactDerivative)
 
 We can obtain an algebraic approximation to $du/dt$ simply by relaxing the requirement that $\Delta t \to 0$, retaining a finite $\Delta t$:
 
 $$
 \frac{du}{dt} \approx \frac{u(t+\Delta t)-u(t)}{\Delta t}.
-$$
+$$ (eq:approxDerivative)
 
-If instead of a continuos $t$, we use values $t^n=n\Delta t$, we can write the algberaic approximation as:
+If instead of a continuos $t$, we use values $t^n=n\Delta t$, we can write the algberaic approximation {eq}`eq:approxDerivative` as:
 
 $$
 \frac{du}{dt} \approx \frac{u^{n+1}-u^n}{\Delta t},
-$$
+$$ (eq:discreteDerivative)
 
 where $u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)$ and $u^{n}=u(t^n)$.
 
