@@ -35,4 +35,5 @@ parse:
   myst_enable_extensions:
     - amsmath
     - dollarmath
+    - colon_fence
 

@@ -19,6 +19,20 @@ chapters:
   - file: LinearAdvectionEquation/differenceEquation.md
   - file: LinearAdvectionEquation/Analysis.md
   - file: LinearAdvectionEquation/TVD.md
+- file: NumericalStability/intro.md
+  sections: 
+   - file: NumericalStability/vonNeumannStability.md
+   - file: NumericalStability/matrixStability.md
+- file: NumericalSchemes/intro.md
+  sections:
+  - file: NumericalSchemes/lineaAdvectionEquation.md
+  - file: NumericalSchemes/schemeLeapfrog.md
+  - file: NumericalSchemes/schemeUpwind.md
+  - file: NumericalSchemes/schemeLaxWendroff.md
+  - file: NumericalSchemes/schemeMacCormack.md
+  - file: NumericalSchemes/schemeCrankNicholson.md
+  - file: NumericalSchemes/schemeImplicit.md
+  - file: NumericalSchemes/twoDimensionalAdvection.md
 - file: TheWaveEquation/Introduction.md
   sections:
   - file: TheWaveEquation/linear1dGravityWaves.md
