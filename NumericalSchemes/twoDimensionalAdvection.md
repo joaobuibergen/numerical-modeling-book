@@ -83,7 +83,17 @@ $$
 
 So we find that for 2d advection there is a reduction in the stability limit, which has to be 30% smaller than the limit in the 1d case.
 
-To understand how this reduction comes about, let us consider a wave moving at a $\pi/4$ angle to the $x$ axis. The minimum stability is associated with a wave of wavelength $2d$ in both the $x$ and $y$ directions. The absolute wavenumber of this wave is
+To understand how this reduction comes about, let us consider a wave moving at a $\pi/4$ angle to the $x$ axis ({numref}`fig:advection-2d-stability`). 
+
+```{figure} advection-2d-stability.png
+---
+height: 400px
+name: fig:advection-2d-stability
+---
+Wave moving at a $\pi/4$ angle to the $x$ axis.
+```
+
+The minimum stability is associated with a wave of wavelength $2d$ in both the $x$ and $y$ directions. The absolute wavenumber of this wave is
 
 $$
 k_{2D}=\sqrt{k_x^2+k_y^2}=\sqrt{2\left(\frac{\pi}{d}\right)^2}=\sqrt{2}\frac{\pi}{d}=\sqrt{2}k_{1D},
