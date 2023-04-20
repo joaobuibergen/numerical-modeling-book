@@ -2,10 +2,10 @@
 
 The linear one dimensional gravity wave equations are:
 
-\begin{align}
+$$
   \frac{\partial \eta}{\partial t} &+ H\frac{\partial u}{\partial x} = 0\\
   \frac{\partial u}{\partial t} &+ g\frac{\partial \eta}{\partial x} = 0
-\end{align}
+$$ (eq:linearGravityWave)
 
 where $t$ is time, $x$ is the horizontal coordinate, $\eta$ is the free--surface displacement, $u$ is the horizontal velocity, $H$ is the undisturbed fluid depth and $g$ is the acceleration of gravity. 
 
@@ -18,5 +18,3 @@ $$
 $$ (eqWave)
 
 The wave equation {eq}`eqWave` has a general solution of the form $\eta(x,t)=E_1(x-ct)+E_2(x+ct)$, which represents two waves propagating in opposite directions with the same phase speed $c=\sqrt{gH}$. 
-
-**MISSING T-X DIAGRAM** 

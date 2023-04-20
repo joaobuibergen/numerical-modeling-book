@@ -1,4 +1,4 @@
-# Solution of the wave equation on a regular grid
+# Solution on a regular grid
 
 We shall look in to the solution of {eq}`eqWave` on a regular spatial grid, with spacing $\Delta x$, where the variables $\eta$ and $u$ are defined on the same locations:
 
@@ -20,7 +20,7 @@ Using centred second order differences to discretize the equations for $\eta$ an
 To obtain the discretized version of {eq}`eqWave`, we take the difference equations defined above and apply centred second-order time and space finite difference formulas, respectively to obtain:
 
 $$
-  \eta_m^{n+2} - 2\eta_{m}^{n} + \eta_m^{n-2} = c^2\frac{\Delta t^2}{\Delta x^2} (\eta_{m+2}^{n} -2\eta_{m}^{n} + \eta_{m-2}^{n})
+  \eta_m^{n+2} - 2\eta_{m}^{n} + \eta_m^{n-2} = gH\frac{\Delta t^2}{\Delta x^2} (\eta_{m+2}^{n} -2\eta_{m}^{n} + \eta_{m-2}^{n})
 $$ (eqWaveLeapfrog)
 
 The discretization we obtain is based on grid points and time steps that are $2\Delta x$ and $2\Delta t$ apart, which implies a truncation error of magnitude $O(4\Delta x^2, 4\Delta t^2)$, which is larger than the typical $O(\Delta x^2, \Delta t^2)$ magnitude of the Leapfrog scheme truncation error.
