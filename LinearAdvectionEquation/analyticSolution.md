@@ -2,6 +2,13 @@
 
 The analytic (exact) solution of {eq}`eq:Advection` can be obtained by the method of the separation of variables. We shall assume an initial condition in the form of a simple wave:
 
+```{margin} Euler's formula
+Euler's formula is widely used to mathematically represent simple oscillatory behaviour. The formula reads:
+$$
+e^{i\theta}=\cos \theta + i\sin \theta.
+$$
+```
+
 $$
 	u(x,0)=A e^{i k x},
 $$ (eq:initialCond)
@@ -25,8 +32,8 @@ Substituting in {eq}`eq:Advection`, we have
 that to be valid for all $(x,t)$ must be equal to a constant $-\alpha$. Integration yields
 
 \begin{align*} 
-      \frac{1}{\partial G(t)} \frac{\partial G(t)}{\partial t} =& -\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t} \\
-      -c \frac{1}{\partial H(x)} \frac{\partial H(x)}{\partial x}=& -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
+      \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =& -\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t} \\
+      -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=& -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
 \end{align*}
 
 and we find $u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}$. 
