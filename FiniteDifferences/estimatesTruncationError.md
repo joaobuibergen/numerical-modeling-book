@@ -1,6 +1,8 @@
 # Estimates of the truncation error
 
-To obtain an estimate of the truncation error, we must first estimate the magnitude of the derivatives $du/dt$, $d^2u/dt^2$, $d^3u/dt^3$, and so on. Let us consider a signal $u(t)$ such as the following:
+To obtain an estimate of the truncation error, we must first estimate the magnitude of the derivatives $du/dt$, $d^2u/dt^2$, $d^3u/dt^3$, and so on. 
+
+Let us consider a signal $u(t)$ such as the following:
 
 ```{figure} UTscales.png
 ---
@@ -10,7 +12,9 @@ name: figUTscales
 Time and space scales of signal $u(t)$.
 ```
 
-We observe that over time interval $T$ the signal shows a variation of size $U$. These characteristic values may be thought of as time and signal scales of $u$. Since the derivative of $u(t)$ is the variation $\Delta u$ that occurs over time interval $\Delta t$, we can say that $U$ and $T$ are the characteristic values of $\Delta u$ and $\Delta t$ and write
+We observe that over time interval $T$ the signal shows a variation of size $U$. These characteristic values may be thought of as the time scale and the magnitude of the variation of $u$ over $T$, respectively. 
+
+Since the derivative of $u(t)$ is the variation $\Delta u$ that occurs over time interval $\Delta t$, we can say that $U$ and $T$ are characteristic values of $\Delta u$ and $\Delta t$ and write
 
 $$
 \frac{du}{dt} \approx \frac{U}{T}.
@@ -24,13 +28,13 @@ $$ (eq:orderDu2Dt2)
 
 For higher order derivatives, the reasoning is the same. 
 
-Coming back to the magnitude of the truncation error, the size of the terms of {eq}`eq:truncationError` will be
+To estimate the magnitude of the truncation error, we can write that the size of the terms of {eq}`eq:truncationError` will be
 
 $$
-\Delta t \frac{U}{T^2}, \quad \Delta t^2 \frac{U}{T^3}, \quad \Delta t^3 \frac{U}{T^3}, \quad \text{etc.}
+\Delta t \frac{U}{T^2}, \quad \Delta t^2 \frac{U}{T^3}, \quad \Delta t^3 \frac{U}{T^4}, \quad \text{etc.}
 $$ (eq:magTruncationError)
 
-For small $\Delta t$, we can retain the leading order error term in {eq}`eq:magTruncationError`:
+For small $\Delta t$, we can retain the leading order error term in {eq}`eq:magTruncationError` and write:
 
 $$
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t} + O\left( \frac{\Delta t}{T}\frac{U}{T}\right).
