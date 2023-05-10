@@ -5,12 +5,12 @@
 Finite difference formulas are just finite difference approximations, disregarding the truncation error, e.g., from {eq}`eq:fdExpansion`, we have
 
 $$
-\frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}.
+\frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
 $$ (eq:formulaForward)
 
-Formula {eq}`eq:formulaForward` is called a *forward* difference formula because it uses the $u^n$ and the $u^{n+1}$ values, and it is a first order formula because the truncation error is of $O(\Delta t)$. However, the leading term of the truncation error is usually written with the formula to indicate its order of approximation.
+Formula {eq}`eq:formulaForward` is called a *forward* difference formula because it uses the $u^n$ and the $u^{n+1}$ values, and it is a first order formula because the truncation error is of $O(\Delta t)$. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.
 
-We can use Taylor series expansions to obtain lower order finite difference formulass. Using a backard Taylor series
+We can use Taylor series expansions to obtain several lower order finite difference formulas. Using a backard Taylor series
 
 $$
 u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2} - \frac{\Delta t^3}{3!}\frac{d^3u}{dt^3}+O(\Delta t^4),
@@ -42,18 +42,20 @@ $$
 \left.\frac{du}{dt}\right|_{t^n} \approx a_{-2}u^{n-2}+a_{-1}u^{n-1}+a_{0}u^{n}+a_{1}u^{n+1}+a_{2}u^{n+2}, 
 $$
 
-where the $a_j$'s are coefficients to be determined. We start by expanding $u^{j}, \quad j=n-2,\dotsc,n+2$ as Taylor series of $u^n$, up to the fifth order term:
+where the $a_j$'s are coefficients to be determined. 
+
+We start by expanding $u^{j}, \quad j=n-2,\dotsc,n+2$ as Taylor series of $u^n$, up to the fifth order term:
 
 \begin{align}
-u^{n-2} &= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5}\\
+u^{n-2} &= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
 
-u^{n-1} &= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5}\\
+u^{n-1} &= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
 
 u^{n} &= u^n \\
 
-u^{n+1} &= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5}\\
+u^{n+1} &= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
 
-u^{n+2} &= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5}.
+u^{n+2} &= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
 \end{align}
 
 We now multiply the Taylor series expansions with the corresponding coefficient and group the terms per order of the derivative:
@@ -67,7 +69,7 @@ We now multiply the Taylor series expansions with the corresponding coefficient 
    &(-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
 \end{align}
 
-In order for $\frac{du}{dt}\mid_{t^n}$ to converges to $du/dt$ when $\Delta t \to 0$, we must have:
+In order for $\frac{du}{dt}\mid_{t^n}$ to converge to $du/dt$ when $\Delta t \to 0$, we must have:
 
 \begin{align}
 \mathrm{c1:}& \quad a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2} = 0 \\
@@ -82,7 +84,7 @@ which provides two necessary conditions, there remaining three parameters to cho
 \mathrm{c5:}& \quad 16a_{-2}+a_{-1}+a_{1}+16a_{2} = 0.
 \end{align}
 
-The five conditions c1 to c5 provide five equations for five unknowns whose solution is:
+Conditions c1 to c5 provide five equations for five unknowns whose solution is:
 
 $$
 a_{-2}=\frac{1}{12\Delta t}, \quad a_{-1}=-\frac{8}{12\Delta t}, \quad a_{0}=0, \quad a_{1}=\frac{8}{12\Delta t}, \quad a_{2}=-\frac{1}{12\Delta t}.
