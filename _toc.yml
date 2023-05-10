@@ -20,7 +20,6 @@ chapters:
   - file: LinearAdvectionEquation/differenceEquation.md
   - file: LinearAdvectionEquation/differenceSolution.md
   - file: LinearAdvectionEquation/Analysis.md
-  - file: LinearAdvectionEquation/TVD.md
 - file: NumericalStability/intro.md
   sections: 
    - file: NumericalStability/vonNeumannStability.md
@@ -43,4 +42,7 @@ chapters:
   - file: TheWaveEquation/linear1dGravityWaves.md
   - file: TheWaveEquation/solutionRegularGrid.md
   - file: TheWaveEquation/solutionStaggeredGrid.md
+- file: InertiaGravityWaves/Introduction.md
+  sections:
+  - file: InertiaGravityWaves/inertiaGravityWavesEquation.md
 - file: Bibliography/bibliography.md
