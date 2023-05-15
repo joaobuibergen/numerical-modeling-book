@@ -1,3 +1,4 @@
+(scheme:two-dimensional)=
 # The two dimensional advection equation
 
 1. Consider the 2d advection of field $F$ under the velocity field $\vec{V}$:
