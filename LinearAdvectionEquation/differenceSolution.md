@@ -1,6 +1,6 @@
 # Solution of the difference equation
 
-We shall solve {eq}`eq:diffEquation` analytically because we want to illustrate some aspects of the numerical solution of {eq}`eqAdvection` by the leapfrog scheme. Indeed, while it is equation {eq}`eqAdvection` that we ultimately want to solve, the time marching scheme will effectively solve {eq}`eq:diffEquation`. Thus, by studying the exact solution to {eq}`eq:diffEquation` and how close it is to {eq}`eq:anaSolution`, the exact solution of {eq}`eqAdvection`, we shall be able to say whether or not our time marching method is suitable to the task. 
+We shall solve {eq}`eq:diffEquation` analytically to illustrate some aspects of the numerical solution of {eq}`eq:Advection` by the leapfrog scheme {eq}`eq:Leapfrog`. Indeed, while it is equation {eq}`eq:Advection` that we ultimately want to solve, the time marching scheme will effectively solve {eq}`eq:diffEquation`. Thus, by studying the exact solution to {eq}`eq:diffEquation` and how close it is to {eq}`eq:anaSolution`, the exact solution of {eq}`eqAdvection`, we shall be able to say whether or not our time marching method is suitable to the task. 
 
 We assume an exponential solution to {eq}`eq:diffEquation`:
 
@@ -13,10 +13,10 @@ where $B$ can be complex. Substituting in {eq}`eq:diffEquation`, we have:
 \begin{align*}
         (B^{(n+1)\Delta t} - B^{(n-1)\Delta t})e^{i\mu m\Delta x} &= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}(e^{i\mu (m+1)\Delta x}-e^{i\mu (m-1)\Delta x}) \Leftrightarrow \\
         (B^{\Delta t} - B^{-\Delta t})B^{n\Delta t} e^{i\mu m\Delta x} &= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}e^{i\mu m\Delta x}(e^{i\mu \Delta x}-e^{-i\mu \Delta x}) \Leftrightarrow \\
-        (B^{\Delta t} - B^{-\Delta t}) &= -c\frac{\Delta t}{\Delta x} (e^{i\mu \Delta x}-e^{-i\mu \Delta x}) 
+        (B^{\Delta t} - B^{-\Delta t}) &= -c\frac{\Delta t}{\Delta x} (e^{i\mu \Delta x}-e^{-i\mu \Delta x}). 
 \end{align*}
 
-Since $e^{i\theta}=\cos \theta +i\sin \theta$, we can write:
+Expanding the circular exponentials, we can write:
 
 \begin{align*}
         (B^{\Delta t} - B^{-\Delta t}) &= -c\frac{\Delta t}{\Delta x} (\cos (\mu \Delta x) +  i\sin (\mu \Delta x) -
@@ -39,7 +39,11 @@ $$
 	B^{\Delta t}_\pm = -i\mu \pm \sqrt{1-\mu^2}
 $$ (eqBRoots)
 
-The roots $B^{\Delta t}_\pm$ will have different behaviours, depending on the magnitude of $|\mu|$. For $|\mu| \leq 1$ we obtain two complex roots that we can express in polar form.
+The roots $B^{\Delta t}_\pm$ will have different behaviours, depending on the magnitude of $|\mu|$. 
+
+### Case 1: $|\mu| \leq 1$
+
+For $|\mu| \leq 1$ we obtain two complex roots that we can express in polar form.
 
 ```{margin} Polar form
 The polar form of a complex number $z=a+ib$ is $(a^2+b^2)^{1/2}\exp (i\arctan \frac{b}{a})$ 
@@ -135,3 +139,5 @@ $$
 
 we see that the first waveform is similar to the exact solution, while the second waveform travels in the opposite direction of the exact 
 solution. This second waveform is clearly an artifact introduced by the discretization of {eq}`eqAdvection` and is a source of errors.
+
+### Case 2: $|\mu| \gt 1$
