@@ -23,7 +23,7 @@ where $u_{m}^{n}$, $\Delta t$ and $\Delta x$ have the same meaning as for the Le
 The upwind scheme {eq}`eqUpwind` depends on the sign of $c$. For $c<0$, the scheme becomes
 
 $$
-   u_{m}^{n+1} = u_{m}^{n} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m}^{n})
+   u_{m}^{n+1} = u_{m}^{n} - c\frac{\Delta t}{\Delta x}(u_{m}^{n}-u_{m+1}^{n})
 $$ (eqDownwind)
 
 as information is travelling from right to left.
