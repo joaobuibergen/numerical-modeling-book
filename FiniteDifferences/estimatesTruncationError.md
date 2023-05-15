@@ -1,3 +1,4 @@
+(finite-differences:estimate-truncation)=
 # Estimates of the truncation error
 
 To obtain an estimate of the truncation error, we must first estimate the magnitude of the derivatives $du/dt$, $d^2u/dt^2$, $d^3u/dt^3$, and so on. 
