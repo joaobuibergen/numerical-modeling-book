@@ -42,3 +42,6 @@ parse:
 sphinx:
   config:
     nb_execution_show_tb: True
+    
+launch_buttons:
+  thebe                  : true
