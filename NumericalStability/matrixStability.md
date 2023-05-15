@@ -8,6 +8,8 @@ $$ (eq:matrixStability)
 
 where $\mathbf{u}^{n}=u_{m=0,1,\dotsc,M}^n$ and $F$ is a matrix that represents the finite-difference operator.
 
+Let us consider again the FTCS scheme for the diffusion equation. 
+
 We can write {eq}`eq:FtcsDiffusion` as
 
 $$
