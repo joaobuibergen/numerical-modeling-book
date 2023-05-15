@@ -146,7 +146,7 @@ plt.show()
 
 Unlike the Leapfrog scheme, the solution with the Upwind scheme doesn't show dispersive behaviour. Instead, it presents an excessive smoothing of the abrupt transitions of the initial condition, an effect that is also undesirable. This is characteristic of the Upwind scheme, which is said to be **dissipative** (in excess).
 
-The source of the dissipation can be identified in the Upwind scheme as an artificial term that is added to the linear advection equation {eq}`eqAdvection`
+The source of the dissipation can be identified in the Upwind scheme as an artificial term that is added to the linear advection equation {eq}`eq:Advection`
 
 \begin{equation}
 	\frac{\partial u}{\partial t} + c  \frac{\partial u}{\partial x} = \color{magenta}\left(1-\sigma \right) c\frac{\Delta x}{2}\frac{\partial^2 u}{\partial x^2} + O(\Delta t^2,\Delta x^2)
