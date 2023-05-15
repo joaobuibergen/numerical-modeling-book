@@ -4,7 +4,11 @@ The von Neumann stability analysis method is simple to apply but it cannot handl
 
 It consists of replacing the spatial variation by a single Fourier component. The method is sufficient for linear equations with constant coefficients.
 
-## The FTCS scheme for the linear advection equation
+We shall illustrate the Von Neumann stability method with the FTCS scheme.
+
+## Stability of the FTCS scheme
+
+### The linear advection equation
 
 The FTCS scheme for the linear advection equation is given by:
 
@@ -45,7 +49,7 @@ $$
 
 Therefore, the FTCS scheme applied to the linear advection equation is always unstable, i.e., it is *unconditionally unstable*.
 
-## The FTCS scheme for the diffusion equation
+### The diffusion equation
 
 The one-dimensional diffusion equation is 
 
