@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The two dimensional advection equation" href="twoDimensionalAdvection.html" />
-    <link rel="prev" title="The semi-lagrangian scheme" href="semiLagrangian.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../FiniteDifferences/Introduction.html">
    The finite difference method (FDM)
@@ -191,6 +189,11 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">
+     Consistency, convergence and stability
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../NumericalStability/vonNeumannStability.html">
      Von Neumann Stability Analysis
     </a>
@@ -202,16 +205,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="intro.html">
    Numerical schemes for the linear 1-d advection equation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="schemeLeapfrog-code.html">
      The Leapfrog Scheme
@@ -248,13 +251,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="semiLagrangian.html">
+    <a class="reference internal" href="semiLagrangian-code.html">
      The semi-lagrangian scheme
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Stability of semi-lagragian schemes
     </a>
    </li>
    <li class="toctree-l2">
@@ -369,7 +367,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/joaobuibergen/numerical-modeling-notes"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -386,7 +384,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/semiLagrangianStability.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/joaobuibergen/numerical-modeling-notes/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/semiLagrangianStability.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -479,7 +477,7 @@ title="Print to PDF"
 <h1>Stability of semi-lagragian schemes<a class="headerlink" href="#stability-of-semi-lagragian-schemes" title="Permalink to this headline">#</a></h1>
 <p>The semi-lagrangian scheme can be written as</p>
 <div class="math notranslate nohighlight" id="equation-eq-semilagrangian">
-<span class="eqno">(62)<a class="headerlink" href="#equation-eq-semilagrangian" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-semilagrangian" title="Permalink to this equation">#</a></span>\[
 U_{m}^{n+1}=\alpha U_{m-p-1}^n + (1-\alpha)U_{m-p}^n. 
 \]</div>
 <p>Let us assume a solution like</p>
@@ -487,7 +485,7 @@ U_{m}^{n+1}=\alpha U_{m-p-1}^n + (1-\alpha)U_{m-p}^n.
 \[
 U_m^n=B^ne^{i\lambda m\Delta x}
 \]</div>
-<p>and replace it in <a class="reference internal" href="#equation-eq-semilagrangian">(62)</a>. After removing the common term <span class="math notranslate nohighlight">\(e^{i\lambda m\Delta x}\)</span>, we obtain</p>
+<p>and replace it in <a class="reference internal" href="semiLagrangian-code.html#equation-eq-semilagrangian">(62)</a>. After removing the common term <span class="math notranslate nohighlight">\(e^{i\lambda m\Delta x}\)</span>, we obtain</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{B^{n+1}}{B^n} = \alpha e^{i\lambda (-p-1)\Delta x} + (1-\alpha)e^{i\lambda (-p)\Delta x} \\
@@ -514,10 +512,10 @@ U_m^n=B^ne^{i\lambda m\Delta x}
 <figure class="align-default" id="fig-stability-semi-lagrangian">
 <a class="reference internal image-reference" href="../_images/stability-semi-lagrangian.png"><img alt="../_images/stability-semi-lagrangian.png" src="../_images/stability-semi-lagrangian.png" style="height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">t-x diagram of the Leapfrog and semi-Lagrangian schemes for the linear advection equation, with <span class="math notranslate nohighlight">\(\Delta t=4\)</span>, <span class="math notranslate nohighlight">\(\Delta x=3\)</span> and <span class="math notranslate nohighlight">\(c=2\)</span>.</span><a class="headerlink" href="#fig-stability-semi-lagrangian" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">t-x diagram of the Leapfrog and semi-Lagrangian schemes for the linear advection equation, with <span class="math notranslate nohighlight">\(\Delta t=4\)</span>, <span class="math notranslate nohighlight">\(\Delta x=3\)</span> and <span class="math notranslate nohighlight">\(c=2\)</span>.</span><a class="headerlink" href="#fig-stability-semi-lagrangian" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The unconditional stability of the semi-Lagragian scheme comes from the fact that the <em>physical</em> domain of dependence of the solution is always contained in the <em>numerical</em> domain of dependence of the scheme. Consider the situation in <a class="reference internal" href="#fig-stability-semi-lagrangian"><span class="std std-numref">Fig. 9</span></a>, that represents the t-x diagram of a model where the Leafrog scheme and the semi-Lagrangian are employed to solve the linear advection equation .</p>
+<p>The unconditional stability of the semi-Lagragian scheme comes from the fact that the <em>physical</em> domain of dependence of the solution is always contained in the <em>numerical</em> domain of dependence of the scheme. Consider the situation in <a class="reference internal" href="semiLagrangian-code.html#fig-stability-semi-lagrangian"><span class="std std-numref">Fig. 9</span></a>, that represents the t-x diagram of a model where the Leafrog scheme and the semi-Lagrangian are employed to solve the linear advection equation .</p>
 <p>At time step <span class="math notranslate nohighlight">\(n+1\)</span>, the Leapfrog scheme is unstable because <span class="math notranslate nohighlight">\(\sigma=c\Delta t/\Delta x&gt;1\)</span>. This is visible in the diagram because the characteristic line that goes through <span class="math notranslate nohighlight">\(x_m^{n+1}\)</span> does not fall within the numerical domain of dependence of the Leapfrog scheme. The characteristics lines are the physical domain of dependence since the solution of the linear advection equation propagates along them.</p>
 <p>For the semi-Lagrangian scheme the situation is different. As the particle moves along the characteristic line, the departure point <span class="math notranslate nohighlight">\(x_{\ast}^n\)</span> will always fall on the intersection of the characteristic line with the spatial grid <span class="math notranslate nohighlight">\(x_m\)</span> of the previous time step. Since all values of <span class="math notranslate nohighlight">\(u_m^n\)</span>, the physical domain of dependence will always be between two know values of the solution, which can then be interpolated to find <span class="math notranslate nohighlight">\(u_{\ast}^n\)</span>.</p>
 </section>
@@ -526,7 +524,7 @@ U_m^n=B^ne^{i\lambda m\Delta x}
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "joaobuibergen/numerical-modeling-notes",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -549,20 +547,6 @@ U_m^n=B^ne^{i\lambda m\Delta x}
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="semiLagrangian.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The semi-lagrangian scheme</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="twoDimensionalAdvection.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The two dimensional advection equation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

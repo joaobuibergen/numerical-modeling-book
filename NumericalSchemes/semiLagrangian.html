@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The two dimensional advection equation" href="twoDimensionalAdvection.html" />
-    <link rel="prev" title="Total Variation Diminishing Schemes" href="TVD.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../FiniteDifferences/Introduction.html">
    The finite difference method (FDM)
@@ -207,16 +205,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="intro.html">
    Numerical schemes for the linear 1-d advection equation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="schemeLeapfrog-code.html">
      The Leapfrog Scheme
@@ -252,8 +250,8 @@ const thebe_selector_output = ".output, .cell_output"
      Total Variation Diminishing Schemes
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="semiLagrangian-code.html">
      The semi-lagrangian scheme
     </a>
    </li>
@@ -369,7 +367,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/joaobuibergen/numerical-modeling-notes"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -386,7 +384,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/semiLagrangian.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/joaobuibergen/numerical-modeling-notes/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/semiLagrangian.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -516,41 +514,41 @@ title="Print to PDF"
 <span id="scheme-semi-lagrangian"></span><h1>The semi-lagrangian scheme<a class="headerlink" href="#the-semi-lagrangian-scheme" title="Permalink to this headline">#</a></h1>
 <p>We have been using the linear advection equation in its Eulerian form <a class="reference internal" href="linearAdvectionEquation.html#equation-eqadvection">()</a>. An alternative form of this equation is</p>
 <div class="math notranslate nohighlight" id="equation-eq-advectionlagrangian">
-<span class="eqno">(59)<a class="headerlink" href="#equation-eq-advectionlagrangian" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-advectionlagrangian" title="Permalink to this equation">#</a></span>\[
 \frac{dU}{dt}=0,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(U(t)=u(x(t),t)\)</span> is the quantity <span class="math notranslate nohighlight">\(u(x,t)\)</span> carried by a particle whose trajectory is <span class="math notranslate nohighlight">\(x(t)=x(0)+ct\)</span>. Equation <a class="reference internal" href="#equation-eq-advectionlagrangian">(59)</a> is called the <em>Lagrangian</em> form of <a class="reference internal" href="linearAdvectionEquation.html#equation-eqadvection">()</a> and it states that <span class="math notranslate nohighlight">\(u\)</span> is conserved along particle trajectories.</p>
-<p>Both forms are equivalent, as we can see if we expand <a class="reference internal" href="#equation-eq-advectionlagrangian">(59)</a>:</p>
+<p>where <span class="math notranslate nohighlight">\(U(t)=u(x(t),t)\)</span> is the quantity <span class="math notranslate nohighlight">\(u(x,t)\)</span> carried by a particle whose trajectory is <span class="math notranslate nohighlight">\(x(t)=x(0)+ct\)</span>. Equation <a class="reference internal" href="semiLagrangian-code.html#equation-eq-advectionlagrangian">(59)</a> is called the <em>Lagrangian</em> form of <a class="reference internal" href="linearAdvectionEquation.html#equation-eqadvection">()</a> and it states that <span class="math notranslate nohighlight">\(u\)</span> is conserved along particle trajectories.</p>
+<p>Both forms are equivalent, as we can see if we expand <a class="reference internal" href="semiLagrangian-code.html#equation-eq-advectionlagrangian">(59)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-advectioneulerianlagrangian">
-<span class="eqno">(60)<a class="headerlink" href="#equation-eq-advectioneulerianlagrangian" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-advectioneulerianlagrangian" title="Permalink to this equation">#</a></span>\[
 \frac{dU}{dt}=\frac{du(x(t),t)}{dt}=\frac{\partial u}{\partial t} + \frac{\partial u}{\partial x}\frac{\partial x}{\partial t}=\frac{\partial u}{\partial t} + c\frac{\partial u}{\partial x}=0.
 \]</div>
 <p>The conservation of <span class="math notranslate nohighlight">\(u\)</span> implies that, over a time interval <span class="math notranslate nohighlight">\([n\Delta t, (n+1)\Delta t]\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-eq-schemelagrangian">
-<span class="eqno">(61)<a class="headerlink" href="#equation-eq-schemelagrangian" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-schemelagrangian" title="Permalink to this equation">#</a></span>\[
 U^{n+1}=U^{n}.
 \]</div>
 <p>This means that if we know <span class="math notranslate nohighlight">\(U^0\)</span>, we know the all subsequent <span class="math notranslate nohighlight">\(U^n\)</span>, along the trajectories of fluid particles. However, this does not work in practice because we don’t know the particle trajectories.</p>
-<p>A more practical approach is to “reverse” the procedure.  <a class="reference internal" href="#fig-semilagrangia-grid"><span class="std std-numref">Fig. 8</span></a> shows a part of the t-x diagram between time steps <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span> and grid positions <span class="math notranslate nohighlight">\(m-2\)</span> to <span class="math notranslate nohighlight">\(m+2\)</span>.</p>
+<p>A more practical approach is to “reverse” the procedure.  <a class="reference internal" href="semiLagrangian-code.html#fig-semilagrangia-grid"><span class="std std-numref">Fig. 8</span></a> shows a part of the t-x diagram between time steps <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span> and grid positions <span class="math notranslate nohighlight">\(m-2\)</span> to <span class="math notranslate nohighlight">\(m+2\)</span>.</p>
 <figure class="align-default" id="fig-semilagrangia-grid">
 <a class="reference internal image-reference" href="../_images/numerical-schemes-semi-lagrangian-grid.png"><img alt="../_images/numerical-schemes-semi-lagrangian-grid.png" src="../_images/numerical-schemes-semi-lagrangian-grid.png" style="height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">t-x diagram between time steps <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span>. The particle at <span class="math notranslate nohighlight">\(x_{m+2}\)</span> at time <span class="math notranslate nohighlight">\(t^{n+1}\)</span> was at <span class="math notranslate nohighlight">\(x_{\ast}\)</span> at time <span class="math notranslate nohighlight">\(t^n\)</span>.</span><a class="headerlink" href="#fig-semilagrangia-grid" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">t-x diagram between time steps <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span>. The particle at <span class="math notranslate nohighlight">\(x_{m+2}\)</span> at time <span class="math notranslate nohighlight">\(t^{n+1}\)</span> was at <span class="math notranslate nohighlight">\(x_{\ast}\)</span> at time <span class="math notranslate nohighlight">\(t^n\)</span>.</span><a class="headerlink" href="#fig-semilagrangia-grid" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The value of <span class="math notranslate nohighlight">\(u_{m+2}^{n+1}\)</span> is <span class="math notranslate nohighlight">\(U_{m+2}^{n+1}\)</span>, the value of <span class="math notranslate nohighlight">\(u\)</span> carried by the particle that occupies <span class="math notranslate nohighlight">\(x_{m+2}\)</span> at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>. According to <a class="reference internal" href="#equation-eq-schemelagrangian">(61)</a>, this value is <span class="math notranslate nohighlight">\(U_{\ast}^{n}\)</span>, the value of <span class="math notranslate nohighlight">\(u\)</span> at <span class="math notranslate nohighlight">\(x_{\ast}\)</span> at <span class="math notranslate nohighlight">\(t^n\)</span>, which is the position that the particle occupied at <span class="math notranslate nohighlight">\(t^n\)</span>.</p>
-<p>During one time step, the particle moves a distance <span class="math notranslate nohighlight">\(s=c\Delta t\)</span>. Let <span class="math notranslate nohighlight">\(\sigma=c\Delta t/\Delta x=1.25\)</span> (<a class="reference internal" href="#fig-semilagrangia-grid"><span class="std std-numref">Fig. 8</span></a>), so that <span class="math notranslate nohighlight">\(s=\sigma\Delta x=1.25\Delta x\)</span>. In general, the particle’s departure point <span class="math notranslate nohighlight">\(x_{\ast}\)</span> does not coincide with the grid nodes, so we must interpolate <span class="math notranslate nohighlight">\(u\)</span> to find <span class="math notranslate nohighlight">\(u(x_{\ast},t^n)\)</span>.</p>
+<p>The value of <span class="math notranslate nohighlight">\(u_{m+2}^{n+1}\)</span> is <span class="math notranslate nohighlight">\(U_{m+2}^{n+1}\)</span>, the value of <span class="math notranslate nohighlight">\(u\)</span> carried by the particle that occupies <span class="math notranslate nohighlight">\(x_{m+2}\)</span> at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>. According to <a class="reference internal" href="semiLagrangian-code.html#equation-eq-schemelagrangian">(61)</a>, this value is <span class="math notranslate nohighlight">\(U_{\ast}^{n}\)</span>, the value of <span class="math notranslate nohighlight">\(u\)</span> at <span class="math notranslate nohighlight">\(x_{\ast}\)</span> at <span class="math notranslate nohighlight">\(t^n\)</span>, which is the position that the particle occupied at <span class="math notranslate nohighlight">\(t^n\)</span>.</p>
+<p>During one time step, the particle moves a distance <span class="math notranslate nohighlight">\(s=c\Delta t\)</span>. Let <span class="math notranslate nohighlight">\(\sigma=c\Delta t/\Delta x=1.25\)</span> (<a class="reference internal" href="semiLagrangian-code.html#fig-semilagrangia-grid"><span class="std std-numref">Fig. 8</span></a>), so that <span class="math notranslate nohighlight">\(s=\sigma\Delta x=1.25\Delta x\)</span>. In general, the particle’s departure point <span class="math notranslate nohighlight">\(x_{\ast}\)</span> does not coincide with the grid nodes, so we must interpolate <span class="math notranslate nohighlight">\(u\)</span> to find <span class="math notranslate nohighlight">\(u(x_{\ast},t^n)\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(p=[\sigma]\)</span> be the integer part of <span class="math notranslate nohighlight">\(\sigma\)</span> and <span class="math notranslate nohighlight">\(\alpha=\sigma-p\)</span>, the fractional part of <span class="math notranslate nohighlight">\(\sigma\)</span>. In this example, <span class="math notranslate nohighlight">\(p=1\)</span> and <span class="math notranslate nohighlight">\(\alpha=0.25\)</span>. The departure point falls between <span class="math notranslate nohighlight">\(m-p-1\)</span> and <span class="math notranslate nohighlight">\(m-p\)</span>, and we can use linear interpolation to obtain <span class="math notranslate nohighlight">\(U_{\ast}^n\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 U_{\ast}^n=\alpha u_{m-p-1}^n + (1-\alpha)u_{m-p}^n=u_{m+2}^{n+1}, 
 \]</div>
-<p>which is <span class="math notranslate nohighlight">\(u_{m+2}^{n+1}\)</span> because of <a class="reference internal" href="#equation-eq-schemelagrangian">(61)</a>.</p>
+<p>which is <span class="math notranslate nohighlight">\(u_{m+2}^{n+1}\)</span> because of <a class="reference internal" href="semiLagrangian-code.html#equation-eq-schemelagrangian">(61)</a>.</p>
 <section id="stability-of-semi-lagragian-schemes">
 <h2>Stability of semi-lagragian schemes<a class="headerlink" href="#stability-of-semi-lagragian-schemes" title="Permalink to this headline">#</a></h2>
 <p>The semi-lagrangian scheme can be written as</p>
 <div class="math notranslate nohighlight" id="equation-eq-semilagrangian">
-<span class="eqno">(62)<a class="headerlink" href="#equation-eq-semilagrangian" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-semilagrangian" title="Permalink to this equation">#</a></span>\[
 U_{m}^{n+1}=\alpha U_{m-p-1}^n + (1-\alpha)U_{m-p}^n. 
 \]</div>
 <p>Let us assume a solution like</p>
@@ -558,7 +556,7 @@ U_{m}^{n+1}=\alpha U_{m-p-1}^n + (1-\alpha)U_{m-p}^n.
 \[
 U_m^n=B^ne^{i\lambda m\Delta x}
 \]</div>
-<p>and replace it in <a class="reference internal" href="#equation-eq-semilagrangian">(62)</a>. After removing the common term <span class="math notranslate nohighlight">\(e^{i\lambda m\Delta x}\)</span>, we obtain</p>
+<p>and replace it in <a class="reference internal" href="semiLagrangian-code.html#equation-eq-semilagrangian">(62)</a>. After removing the common term <span class="math notranslate nohighlight">\(e^{i\lambda m\Delta x}\)</span>, we obtain</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{B^{n+1}}{B^n} = \alpha e^{i\lambda (-p-1)\Delta x} + (1-\alpha)e^{i\lambda (-p)\Delta x} \\
@@ -585,10 +583,10 @@ U_m^n=B^ne^{i\lambda m\Delta x}
 <figure class="align-default" id="fig-stability-semi-lagrangian">
 <a class="reference internal image-reference" href="../_images/stability-semi-lagrangian.png"><img alt="../_images/stability-semi-lagrangian.png" src="../_images/stability-semi-lagrangian.png" style="height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">t-x diagram of the Leapfrog and semi-Lagrangian schemes for the linear advection equation, with <span class="math notranslate nohighlight">\(\Delta t=4\)</span>, <span class="math notranslate nohighlight">\(\Delta x=3\)</span> and <span class="math notranslate nohighlight">\(c=2\)</span>.</span><a class="headerlink" href="#fig-stability-semi-lagrangian" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">t-x diagram of the Leapfrog and semi-Lagrangian schemes for the linear advection equation, with <span class="math notranslate nohighlight">\(\Delta t=4\)</span>, <span class="math notranslate nohighlight">\(\Delta x=3\)</span> and <span class="math notranslate nohighlight">\(c=2\)</span>.</span><a class="headerlink" href="#fig-stability-semi-lagrangian" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The unconditional stability of the semi-Lagragian scheme comes from the fact that the <em>physical</em> domain of dependence of the solution is always contained in the <em>numerical</em> domain of dependence of the scheme. Consider the situation in <a class="reference internal" href="#fig-stability-semi-lagrangian"><span class="std std-numref">Fig. 9</span></a>, that represents the t-x diagram of a model where the Leafrog scheme and the semi-Lagrangian are employed to solve the linear advection equation .</p>
+<p>The unconditional stability of the semi-Lagragian scheme comes from the fact that the <em>physical</em> domain of dependence of the solution is always contained in the <em>numerical</em> domain of dependence of the scheme. Consider the situation in <a class="reference internal" href="semiLagrangian-code.html#fig-stability-semi-lagrangian"><span class="std std-numref">Fig. 9</span></a>, that represents the t-x diagram of a model where the Leafrog scheme and the semi-Lagrangian are employed to solve the linear advection equation .</p>
 <p>At time step <span class="math notranslate nohighlight">\(n+1\)</span>, the Leapfrog scheme is unstable because <span class="math notranslate nohighlight">\(\sigma=c\Delta t/\Delta x&gt;1\)</span>. This is visible in the diagram because the characteristic line that goes through <span class="math notranslate nohighlight">\(x_m^{n+1}\)</span> does not fall within the numerical domain of dependence of the Leapfrog scheme. The characteristics lines are the physical domain of dependence since the solution of the linear advection equation propagates along them.</p>
 <p>For the semi-Lagrangian scheme the situation is different. As the particle moves along the characteristic line, the departure point <span class="math notranslate nohighlight">\(x_{\ast}^n\)</span> will always fall on the intersection of the characteristic line with the spatial grid <span class="math notranslate nohighlight">\(x_m\)</span> of the previous time step. Since all values of <span class="math notranslate nohighlight">\(u_m^n\)</span>, the physical domain of dependence will always be between two know values of the solution, which can then be interpolated to find <span class="math notranslate nohighlight">\(u_{\ast}^n\)</span>.</p>
 </section>
@@ -598,7 +596,7 @@ U_m^n=B^ne^{i\lambda m\Delta x}
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "joaobuibergen/numerical-modeling-notes",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -621,20 +619,6 @@ U_m^n=B^ne^{i\lambda m\Delta x}
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="TVD.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Total Variation Diminishing Schemes</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="twoDimensionalAdvection.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The two dimensional advection equation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

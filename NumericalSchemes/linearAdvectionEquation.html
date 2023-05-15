@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The Leapfrog Scheme" href="schemeLeapfrog-code.html" />
-    <link rel="prev" title="Numerical schemes for the linear 1-d advection equation" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../FiniteDifferences/Introduction.html">
    The finite difference method (FDM)
@@ -191,6 +189,11 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">
+     Consistency, convergence and stability
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../NumericalStability/vonNeumannStability.html">
      Von Neumann Stability Analysis
     </a>
@@ -202,21 +205,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="intro.html">
    Numerical schemes for the linear 1-d advection equation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     The linear 1-d advection equation
-    </a>
-   </li>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="schemeLeapfrog-code.html">
      The Leapfrog Scheme
@@ -253,13 +251,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="semiLagrangian.html">
+    <a class="reference internal" href="semiLagrangian-code.html">
      The semi-lagrangian scheme
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="semiLagrangianStability.html">
-     Stability of semi-lagragian schemes
     </a>
    </li>
    <li class="toctree-l2">
@@ -374,7 +367,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/joaobuibergen/numerical-modeling-notes"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -391,7 +384,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/linearAdvectionEquation.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/joaobuibergen/numerical-modeling-notes/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/linearAdvectionEquation.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -484,18 +477,18 @@ title="Print to PDF"
 <h1>The linear 1-d advection equation<a class="headerlink" href="#the-linear-1-d-advection-equation" title="Permalink to this headline">#</a></h1>
 <p>The linear 1-d advection equation is a simple model for the advection process. It models the propagation of a function <span class="math notranslate nohighlight">\(u\)</span> in one dimensionsal space <span class="math notranslate nohighlight">\(x\)</span> with speed <span class="math notranslate nohighlight">\(c\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eqadvection">
-<span class="eqno">(48)<a class="headerlink" href="#equation-eqadvection" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eqadvection" title="Permalink to this equation">#</a></span>\[
 	\frac{\partial u}{\partial t} + c  \frac{\partial u}{\partial x} = 0
 \]</div>
 <p>Function <span class="math notranslate nohighlight">\(u\)</span> is a generic function that may be viewed as a geophysical quantity of interest such as temperature. The propagation speed <span class="math notranslate nohighlight">\(c\)</span> can be viewed as the speed with which a particular feature of the quantity of intereste moves across <span class="math notranslate nohighlight">\(x\)</span>, such as the speed at which a temperature front moves in space or, if temperature is represented by a wavelike function, <span class="math notranslate nohighlight">\(c\)</span> may be regarded as the phase speed of the wavelike function.</p>
-<p>The general solution of <a class="reference internal" href="#equation-eqadvection">(48)</a> is the initial condition <span class="math notranslate nohighlight">\(u(x,t=0)=u0\)</span> translating in space: <span class="math notranslate nohighlight">\(u(x,t)=u0(x-ct)\)</span>.</p>
+<p>The general solution of <a class="reference internal" href="#equation-eqadvection">()</a> is the initial condition <span class="math notranslate nohighlight">\(u(x,t=0)=u0\)</span> translating in space: <span class="math notranslate nohighlight">\(u(x,t)=u0(x-ct)\)</span>.</p>
 </section>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "joaobuibergen/numerical-modeling-notes",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -518,20 +511,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Numerical schemes for the linear 1-d advection equation</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="schemeLeapfrog-code.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The Leapfrog Scheme</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

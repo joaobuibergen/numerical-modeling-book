@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The semi-lagrangian scheme" href="semiLagrangian.html" />
+    <link rel="next" title="The semi-lagrangian scheme" href="semiLagrangian-code.html" />
     <link rel="prev" title="The Implicit Scheme" href="schemeImplicit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -191,6 +191,11 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">
+     Consistency, convergence and stability
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../NumericalStability/vonNeumannStability.html">
      Von Neumann Stability Analysis
     </a>
@@ -248,13 +253,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="semiLagrangian.html">
+    <a class="reference internal" href="semiLagrangian-code.html">
      The semi-lagrangian scheme
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="semiLagrangianStability.html">
-     Stability of semi-lagragian schemes
     </a>
    </li>
    <li class="toctree-l2">
@@ -369,7 +369,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+        <a href="https://github.com/joaobuibergen/numerical-modeling-notes"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -386,7 +386,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/TVD.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/joaobuibergen/numerical-modeling-notes/issues/new?title=Issue%20on%20page%20%2FNumericalSchemes/TVD.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -537,7 +537,7 @@ title="Print to PDF"
 <section id="tvd-total-variation-diminishing-schemes">
 <h2>TVD (Total Variation Diminishing) Schemes<a class="headerlink" href="#tvd-total-variation-diminishing-schemes" title="Permalink to this headline">#</a></h2>
 <p>TVD (Total Variation Diminishing) schemes are a class of numerical methods used for solving partial differential equations (PDEs) when strong gradients, shocks or discontinuities are present in the solution. The ability to preserve strong gradients in the numerical solution is especially important in the context of frontal advection.</p>
-<p>Higher-order methods, such as the <a class="reference internal" href="schemeUpwind-code.html#scheme-leapfrog"><span class="std std-ref">leapfrog scheme</span></a>, are capable of retaining strong gradients in the solution but are prone to spurious oscillations or under/overshoots in the solution that create new (unphysical) extrema. The <span class="xref std std-ref">upwind scheme</span> does not create new extrema (is monotone), but it is only first-order accurate and diffusive, which causes strong gradients to be smeared out.</p>
+<p>Higher-order methods, such as the <a class="reference internal" href="schemeLeapfrog-code.html#scheme-leapfrog"><span class="std std-ref">leapfrog scheme</span></a>, are capable of retaining strong gradients in the solution but are prone to spurious oscillations or under/overshoots in the solution that create new (unphysical) extrema. The <a class="reference internal" href="schemeUpwind-code.html#scheme-upwind"><span class="std std-ref">upwind scheme</span></a> does not create new extrema (is monotone), but it is only first-order accurate and diffusive, which causes strong gradients to be smeared out.</p>
 <p>Godunov’s theorem (REF) states that any linear monotone scheme can be at most first order accurate, so we cannot find a higher-order linear scheme that is also monotone. This implies that we must forego monotonicity if we want to preserve strong gradients in the numerical solution, when considering linear schemes. On the other hand, if we allow some degree of nonlinearity, we may have both monotonicity and the preservation of strong gradients.</p>
 <p>TVD schemes provide this, because they allow for monotonic nonlinear schemes, whenever there are artificial extrema being introduced in the numerical solution. Otherwise, the scheme remains higher order.</p>
 <p>Adaptive schemes such as these are based on the concept of total variation of the solution, which measures the amount of variation in the numerical solution over a given interval. The total variation should be conserved in order to prevent spurious oscillations or overshoots that can occur with higher order methods.</p>
@@ -663,7 +663,7 @@ r_{m+\frac{1}{2}}=\frac{u_{m}^n - u_{m-1}^n}{u_{m+1}^n - u_{m}^n}.
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "joaobuibergen/numerical-modeling-notes",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -693,7 +693,7 @@ r_{m+\frac{1}{2}}=\frac{u_{m}^n - u_{m-1}^n}{u_{m+1}^n - u_{m}^n}.
             <p class="prev-next-title">The Implicit Scheme</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="semiLagrangian.html" title="next page">
+    <a class='right-next' id="next-link" href="semiLagrangian-code.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">The semi-lagrangian scheme</p>
