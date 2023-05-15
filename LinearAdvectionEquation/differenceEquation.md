@@ -7,7 +7,15 @@ $$
 	t^n &= n\Delta t, n=0,1,2,...,N,
 $$ (eq:Discretization)
 
-where $\Delta t$ is the time step and $\Delta x$ is the grid resolution. 
+where $\Delta t$ is the time step and $\Delta x$ is the grid resolution. The discrete time-space domain is commonly represented as the *t-x diagram* in {numref}`txDiagram`.
+
+```{figure} ./txDiagramCropped.png
+---
+height: 600px
+name: txDiagram
+---
+The discrete time-space domain represented as a t-x diagram. The numerical solution at time $t^n$ and position $x_m$ is $u_m^n$ and is represented in the diagram in the position ($x_m$,$t^n$).  
+```
 
 Using the 2nd order centered formula {eq}`eq:formulaCentred` to replace the exact derivatives in {eq}`eq:Advection`, we get:
 
@@ -15,7 +23,7 @@ $$
 	\frac{u_{m}^{n+1} - u_{m}^{n-1}}{2\Delta t } + c \frac{u_{m+1}^{n} - u_{m-1}^{n}}{2\Delta x} = 0.
 $$ (eq:diffEquation)
 
-We call {eq}`eq:diffEquation` the *difference equation* resulting from the discretization of {eq}`eqAdvection` by the 2nd order centred formulas for the first derivative. Rearranging the terms of {eq}`eq:diffEquation` we obtain a time marching scheme:
+We call {eq}`eq:diffEquation` the *difference equation* resulting from the discretization of {eq}`eq:Advection` by the 2nd order centred formulas for the first derivative. Rearranging the terms of {eq}`eq:diffEquation` we obtain a time marching scheme:
 
 $$
 u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}),
