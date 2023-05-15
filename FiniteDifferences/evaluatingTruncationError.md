@@ -1,3 +1,4 @@
+(finite-differences:evaluation-truncation)=
 # Evaluating the truncation error
 
 To evaluate the effect of the truncation error, we consider the following sinusoidal function
