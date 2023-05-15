@@ -1,5 +1,7 @@
+(finite-differences:formulas-1stderivative)=
 # Finite difference formulas for the 1st derivative
 
+(finite-differences:formulas-1stderivative-1storder)=
 ## First order formulas
 
 Finite difference formulas are just finite difference approximations, disregarding the truncation error, e.g., from {eq}`eq:fdExpansion`, we have
@@ -32,6 +34,7 @@ $$ (eq:formulaCentred)
 
 which is called the *centred* difference formula and which is a second order approximation because its truncation error is proportional to $\Delta t^2$.
 
+(finite-differences:formulas-1stderivative-higherorder)=
 ## Higher order formulas
 
 The 1st and 2nd order formulas {eq}`eq:formulaForward`, {eq}`eq:formulaBackward`, {eq}`eq:formulaCentred` were obtained by manipulation of the Taylor series expansions of $u(t)$ but for higher order approximations, this soon becomes unpractical. However, there is a more expedite method to find higher order formulas. 
