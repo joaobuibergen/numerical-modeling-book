@@ -1,3 +1,4 @@
+(finite-differences:algebraic-derivative)=
 # Algebraic approximation of the first derivative
 
 Let us consider a function $u(t)$ that depends continously on $t$. The derivative of $u(t)$ is:
