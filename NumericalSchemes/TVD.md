@@ -1,10 +1,11 @@
+(scheme:tvd)=
 # Total Variation Diminishing Schemes
 
 ## TVD (Total Variation Diminishing) Schemes
 
 TVD (Total Variation Diminishing) schemes are a class of numerical methods used for solving partial differential equations (PDEs) when strong gradients, shocks or discontinuities are present in the solution. The ability to preserve strong gradients in the numerical solution is especially important in the context of frontal advection. 
 
-Higher-order methods, such as the leapfrog scheme (LINK!), are capable of retaining strong gradients in the solution but are prone to spurious oscillations or under/overshoots in the solution that create new (unphysical) extrema. The upwind scheme (LINK!) does not create new extrema (is monotone), but it is only first-order accurate and diffusive, which causes strong gradients to be smeared out. 
+Higher-order methods, such as the {ref}`leapfrog scheme <scheme:leapfrog>`, are capable of retaining strong gradients in the solution but are prone to spurious oscillations or under/overshoots in the solution that create new (unphysical) extrema. The {ref}`upwind scheme <scheme:upwind>` does not create new extrema (is monotone), but it is only first-order accurate and diffusive, which causes strong gradients to be smeared out. 
 
 Godunov's theorem (REF) states that any linear monotone scheme can be at most first order accurate, so we cannot find a higher-order linear scheme that is also monotone. This implies that we must forego monotonicity if we want to preserve strong gradients in the numerical solution, when considering linear schemes. On the other hand, if we allow some degree of nonlinearity, we may have both monotonicity and the preservation of strong gradients. 
 
@@ -12,6 +13,7 @@ TVD schemes provide this, because they allow for monotonic nonlinear schemes, wh
 
 Adaptive schemes such as these are based on the concept of total variation of the solution, which measures the amount of variation in the numerical solution over a given interval. The total variation should be conserved in order to prevent spurious oscillations or overshoots that can occur with higher order methods.
 
+(scheme:tvd-theory)=
 ## TVD Scheme Theory
 
 TVD schemes achieve conservation of total variation by using a limiter function to restrict the amount of numerical diffusion introduced by the scheme. The limiter function is designed to detect the presence of discontinuities or shocks in the solution and to reduce the amount of diffusion introduced in these regions. By reducing the amount of numerical diffusion, TVD schemes are able to preserve sharp gradients and discontinuities in the solution while maintaining stability.
@@ -60,6 +62,7 @@ $$
 
 which is the TVD condition (REF). Therefore, this scheme will be TVD if those three conditions are verified.
 
+(scheme:tvd-example)=
 ## TVD Scheme example
 
 One example of a TVD scheme is the Total Variation Diminishing Upwind Scheme (TVDUS) applied to the linear advection equation.
