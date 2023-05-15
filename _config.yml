@@ -39,3 +39,6 @@ parse:
     - dollarmath
     - colon_fence
 
+sphinx:
+  config:
+    nb_execution_show_tb: True
