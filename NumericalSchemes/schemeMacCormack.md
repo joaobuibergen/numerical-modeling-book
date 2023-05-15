@@ -34,11 +34,4 @@ For the linear advection equation, the MacCormack scheme is equivalent to the La
 
 The MacCormack scheme applied to the top hat initial condition gives the same solution as the Lax-Wendroff scheme.
 
-```{figure} ../MacCormack_Solution.png
----
-height: 400px
-name: macCormackSolution
----
-The MacCormack scheme solution after 50 time steps for a *top hat* initial condition, with $\Delta t=2$ and $\Delta x=1$.
-```
 
