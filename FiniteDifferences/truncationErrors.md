@@ -1,3 +1,4 @@
+(finite-differences:truncation-error)=
 # Truncation Error
 
 The accuracy of the algebraic approximation to $du/dt$ {eq}`eq:discreteDerivative` can be determined with the help of the Taylor series expansion of $u(t)$: 
